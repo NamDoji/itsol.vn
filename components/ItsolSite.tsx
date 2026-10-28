@@ -298,7 +298,7 @@ function Footer({ locale, techMode }: { locale: Locale; techMode: boolean }) {
         <div className="grid gap-12 lg:grid-cols-[1.8fr_1fr_1fr_1.3fr]">
           {/* Company legal info */}
           <div>
-            <h4 className="mb-4 text-sm font-800 uppercase tracking-wider text-orange">{t(locale, "Giới thiệu ITSOL", "About ITSOL")}</h4>
+            <h4 className="mb-4 text-sm font-800 uppercase tracking-wider text-white">{t(locale, "Giới thiệu ITSOL", "About ITSOL")}</h4>
             <ul className="flex flex-col gap-2.5 text-sm leading-6">
               <li className="font-700 text-white">{t(locale, companyInfo.nameVi, companyInfo.nameEn)}</li>
               <li>{t(locale, "Mã số doanh nghiệp/MST", "Business/Tax code")}: {companyInfo.taxCode}</li>
