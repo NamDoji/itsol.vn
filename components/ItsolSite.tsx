@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { BrandLogo } from "./BrandLogo";
 import {
-  awards, caseStudies, contactInfo, industries, products,
+  awards, caseStudies, companyInfo, contactInfo, industries, products,
   services, staffingProcess, staffingRoles, technologies,
   t, type Locale
 } from "@/data/site";
@@ -24,7 +24,7 @@ export type PageKey =
   | "home" | "about" | "services" | "staffing" | "odc"
   | "software-outsourcing" | "product-development" | "products"
   | "product-detail" | "industries" | "case-studies" | "awards"
-  | "careers" | "insights" | "contact";
+  | "careers" | "insights" | "contact" | "policy";
 
 type SubmitState = "idle" | "sending" | "success" | "error";
 
@@ -295,26 +295,38 @@ function Footer({ locale, techMode }: { locale: Locale; techMode: boolean }) {
   return (
     <footer className={`${base} border-t`}>
       <div className="container-page py-16">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1.3fr]">
-          {/* Brand */}
+        <div className="grid gap-12 lg:grid-cols-[1.8fr_1fr_1fr_1.3fr]">
+          {/* Company legal info */}
           <div>
-            <p className="text-sm leading-7">
-              {t(locale,
-                "Trở thành đối tác công nghệ tin cậy nhất Việt Nam, nơi con người và giá trị bền vững là trung tâm.",
-                "Vietnam's most trusted technology partner where people and sustainable values are at the center."
-              )}
-            </p>
-            <div className="mt-5 flex flex-col gap-2 text-sm">
-              <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-brand-blue transition-colors">
-                <Mail className="size-4 shrink-0" />{contactInfo.email}
+            <h4 className="mb-4 text-sm font-800 uppercase tracking-wider text-orange">{t(locale, "Giới thiệu ITSOL", "About ITSOL")}</h4>
+            <ul className="flex flex-col gap-2.5 text-sm leading-6">
+              <li className="font-700 text-white">{t(locale, companyInfo.nameVi, companyInfo.nameEn)}</li>
+              <li>{t(locale, "Mã số doanh nghiệp/MST", "Business/Tax code")}: {companyInfo.taxCode}</li>
+              <li>{t(locale, "Ngày cấp", "Issued on")}: {companyInfo.issuedDate}</li>
+              <li>{t(locale, "Nơi cấp", "Issued by")}: {t(locale, companyInfo.issuedByVi, companyInfo.issuedByEn)}</li>
+              <li className="flex items-start gap-2">
+                <MapPin className="size-4 mt-1 shrink-0" />{t(locale, companyInfo.addressVi, companyInfo.addressEn)}
+              </li>
+              <li className="flex items-center gap-2">
+                <Phone className="size-4 shrink-0" />{t(locale, "Tổng đài CSKH", "Hotline")}:
+                <a href={`tel:${companyInfo.hotline.replace(/\s/g, "")}`} className="font-800 text-white hover:text-brand-blue transition-colors">{companyInfo.hotline}</a>
+              </li>
+              <li>
+                <a href={`mailto:${contactInfo.email}`} className="flex items-center gap-2 hover:text-brand-blue transition-colors">
+                  <Mail className="size-4 shrink-0" />{contactInfo.email}
+                </a>
+              </li>
+            </ul>
+            {companyInfo.bctNotificationUrl && (
+              <a href={companyInfo.bctNotificationUrl} target="_blank" rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-3 rounded-xl border border-white/15 bg-white/8 px-4 py-2.5 hover:bg-white/12 transition-colors"
+              >
+                <ShieldCheck className="size-8 text-brand-blue" />
+                <span className="text-xs font-800 uppercase leading-5 text-white">
+                  {t(locale, "Đã thông báo", "Registered with")}<br />{t(locale, "Bộ Công Thương", "Ministry of Industry and Trade")}
+                </span>
               </a>
-              <a href={`tel:${contactInfo.phone}`} className="flex items-center gap-2 hover:text-brand-blue transition-colors">
-                <Phone className="size-4 shrink-0" />{contactInfo.phone}
-              </a>
-              <span className="flex items-start gap-2">
-                <MapPin className="size-4 mt-0.5 shrink-0" />{contactInfo.address}
-              </span>
-            </div>
+            )}
           </div>
 
           {/* Services */}
@@ -373,8 +385,9 @@ function Footer({ locale, techMode }: { locale: Locale; techMode: boolean }) {
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/8 pt-8 text-sm sm:flex-row">
-          <p>© {new Date().getFullYear()} ITSOL JSC. {t(locale, "Bảo lưu mọi quyền.", "All rights reserved.")}</p>
-          <div className="flex gap-5">
+          <p>© {new Date().getFullYear()} {companyInfo.shortName} {t(locale, "Bảo lưu mọi quyền.", "All rights reserved.")}</p>
+          <div className="flex flex-wrap justify-center gap-5">
+            <Link href={lp("/policy", locale)} className="hover:text-brand-blue transition-colors">{t(locale, "Chính sách", "Policies")}</Link>
             <Link href={lp("/about", locale)} className="hover:text-brand-blue transition-colors">{t(locale, "Giới thiệu", "About")}</Link>
             <Link href={lp("/careers", locale)} className="hover:text-brand-blue transition-colors">{t(locale, "Tuyển dụng", "Careers")}</Link>
             <Link href={lp("/contact", locale)} className="hover:text-brand-blue transition-colors">{t(locale, "Liên hệ", "Contact")}</Link>
@@ -2042,6 +2055,122 @@ function Awards({ locale }: { locale: Locale }) {
   );
 }
 
+// ─── Policy ───────────────────────────────────────────────────────
+function Policy({ locale }: { locale: Locale }) {
+  const companyName = t(locale, companyInfo.nameVi, companyInfo.nameEn);
+  const sections = [
+    {
+      id: "privacy",
+      title: t(locale, "1. Chính sách bảo mật thông tin", "1. Privacy Policy"),
+      items: [
+        t(locale,
+          `${companyName} (“ITSOL”) thu thập các thông tin bạn chủ động cung cấp qua website như họ tên, email, số điện thoại, tên công ty, nội dung yêu cầu và hồ sơ ứng tuyển (CV).`,
+          `${companyName} (“ITSOL”) collects information you voluntarily provide on this website, such as your name, email, phone number, company, request details and job applications (CVs).`),
+        t(locale,
+          "Thông tin được sử dụng để phản hồi yêu cầu tư vấn, báo giá, xử lý hồ sơ tuyển dụng, gửi bản tin khi bạn đăng ký và cải thiện chất lượng dịch vụ.",
+          "Information is used to respond to consultation and quotation requests, process job applications, send newsletters you subscribe to and improve our services."),
+        t(locale,
+          "ITSOL không bán, trao đổi hay cho thuê thông tin cá nhân cho bên thứ ba. Thông tin chỉ được chia sẻ khi có sự đồng ý của bạn hoặc theo yêu cầu của cơ quan nhà nước có thẩm quyền.",
+          "ITSOL does not sell, trade or rent personal data to third parties. Data is shared only with your consent or when required by competent authorities."),
+        t(locale,
+          "Dữ liệu được lưu trữ trên hệ thống có kiểm soát truy cập và chỉ được lưu trong thời gian cần thiết cho mục đích thu thập hoặc theo quy định pháp luật.",
+          "Data is stored on access-controlled systems and retained only as long as necessary for its purpose or as required by law."),
+      ],
+    },
+    {
+      id: "personal-data",
+      title: t(locale, "2. Quyền của chủ thể dữ liệu", "2. Data Subject Rights"),
+      items: [
+        t(locale,
+          "Theo Nghị định 13/2023/NĐ-CP về bảo vệ dữ liệu cá nhân, bạn có quyền được biết, đồng ý hoặc rút lại sự đồng ý, truy cập, chỉnh sửa, yêu cầu xóa và hạn chế xử lý dữ liệu cá nhân của mình.",
+          "Under Decree 13/2023/ND-CP on personal data protection, you have the right to be informed, to consent or withdraw consent, and to access, correct, delete or restrict the processing of your personal data."),
+        t(locale,
+          `Để thực hiện các quyền này, vui lòng liên hệ ${contactInfo.email} hoặc tổng đài ${companyInfo.hotline}. ITSOL sẽ phản hồi trong thời hạn theo quy định pháp luật.`,
+          `To exercise these rights, contact ${contactInfo.email} or call ${companyInfo.hotline}. ITSOL will respond within the time limits required by law.`),
+      ],
+    },
+    {
+      id: "terms",
+      title: t(locale, "3. Điều khoản sử dụng website", "3. Terms of Use"),
+      items: [
+        t(locale,
+          "Nội dung trên website (văn bản, hình ảnh, logo, tài liệu) thuộc quyền sở hữu của ITSOL hoặc đối tác được cấp phép. Mọi hình thức sao chép, sử dụng cho mục đích thương mại cần có sự đồng ý bằng văn bản của ITSOL.",
+          "Website content (text, images, logos, documents) is owned by ITSOL or its licensors. Any copying or commercial use requires ITSOL's written consent."),
+        t(locale,
+          "Người dùng cam kết cung cấp thông tin chính xác và không sử dụng website cho các hành vi vi phạm pháp luật, phát tán mã độc hoặc gây ảnh hưởng đến hoạt động của hệ thống.",
+          "Users agree to provide accurate information and not to use the website for unlawful acts, distributing malware or disrupting the system."),
+        t(locale,
+          "Thông tin trên website mang tính tham khảo. Phạm vi, chi phí và điều kiện dịch vụ cụ thể được xác định trong hợp đồng ký kết giữa ITSOL và khách hàng.",
+          "Website information is for reference. Specific scope, pricing and service terms are defined in the contract between ITSOL and the client."),
+      ],
+    },
+    {
+      id: "cookies",
+      title: t(locale, "4. Cookie", "4. Cookies"),
+      items: [
+        t(locale,
+          "Website sử dụng cookie và bộ nhớ trình duyệt để ghi nhớ lựa chọn ngôn ngữ, giao diện và đo lường lượt truy cập. Bạn có thể tắt cookie trong cài đặt trình duyệt; một số tính năng có thể không hoạt động đầy đủ.",
+          "The website uses cookies and browser storage to remember language and display preferences and to measure traffic. You can disable cookies in your browser settings; some features may not work fully."),
+      ],
+    },
+    {
+      id: "changes",
+      title: t(locale, "5. Thay đổi chính sách", "5. Policy Changes"),
+      items: [
+        t(locale,
+          "ITSOL có thể cập nhật chính sách này theo thời gian. Phiên bản mới có hiệu lực kể từ khi được đăng tải trên trang này.",
+          "ITSOL may update this policy from time to time. The new version takes effect once published on this page."),
+      ],
+    },
+  ];
+
+  return (
+    <>
+      <SimpleHero
+        locale={locale}
+        eyebrow={t(locale, "Chính sách", "Policies")}
+        title={t(locale, "Chính sách & Điều khoản", "Policies & Terms")}
+        desc={t(locale,
+          "Cách ITSOL thu thập, sử dụng và bảo vệ thông tin của bạn khi sử dụng website.",
+          "How ITSOL collects, uses and protects your information when you use this website."
+        )}
+      />
+      <section className="section bg-light">
+        <div className="container-page grid gap-10 lg:grid-cols-[240px_1fr]">
+          <nav className="hidden lg:block">
+            <ul className="sticky top-28 flex flex-col gap-2 text-sm font-600 text-slate-600">
+              {sections.map(s => (
+                <li key={s.id}><a href={`#${s.id}`} className="hover:text-brand-blue transition-colors">{s.title}</a></li>
+              ))}
+            </ul>
+          </nav>
+          <div className="flex flex-col gap-8">
+            {sections.map(s => (
+              <article key={s.id} id={s.id} className="scroll-mt-28 rounded-2xl border border-slate-200 bg-white p-6 md:p-8">
+                <h2 className="text-xl font-900 text-navy">{s.title}</h2>
+                <ul className="mt-4 flex flex-col gap-3 text-sm leading-7 text-slate-600">
+                  {s.items.map(item => (
+                    <li key={item} className="flex gap-3">
+                      <CheckCircle2 className="mt-1 size-4 shrink-0 text-brand-blue" />{item}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+            <article className="rounded-2xl border border-slate-200 bg-white p-6 text-sm leading-7 text-slate-600 md:p-8">
+              <h2 className="text-xl font-900 text-navy">{t(locale, "Thông tin liên hệ", "Contact")}</h2>
+              <p className="mt-4 font-700 text-navy">{companyName}</p>
+              <p>{t(locale, "Mã số doanh nghiệp", "Business code")}: {companyInfo.taxCode} — {t(locale, "cấp ngày", "issued on")} {companyInfo.issuedDate}</p>
+              <p>{t(locale, "Địa chỉ", "Address")}: {t(locale, companyInfo.addressVi, companyInfo.addressEn)}</p>
+              <p>{t(locale, "Điện thoại", "Phone")}: {companyInfo.hotline} — Email: {contactInfo.email}</p>
+            </article>
+          </div>
+        </div>
+      </section>
+    </>
+  );
+}
+
 // ─── Generic page shells ──────────────────────────────────────────
 function SimpleHero({ eyebrow, title, desc, locale: _locale }: { eyebrow: string; title: string; desc?: string; locale: Locale }) {
   return (
@@ -2583,6 +2712,7 @@ export function ItsolSite({ page, initialLocale, initialProductSlug }: { page: P
     careers:             <Careers locale={locale} />,
     insights:            <Insights locale={locale} />,
     contact:             <Contact locale={locale} />,
+    policy:              <Policy locale={locale} />,
   };
 
   return (
