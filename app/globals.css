@@ -1,0 +1,599 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ══════════════════════════════════════════════════════════════════
+   ITSOL Design System 3.0 — "Dark Luxury Tech"
+   Philosophy: Strong contrast · Bold typography · Creative depth
+   Light mode: White/Gray + electric accents that POP
+   Dark mode:  Near-black + vivid purple/cyan/orange
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ─── Design Tokens ──────────────────────────────────────────────── */
+:root {
+  /* Brand (from logo) */
+  --brand-blue:   #0095E8;
+  --brand-cyan:   #29ABE2;
+  --brand-green:  #7DC338;
+  --brand-orange: #F5820A;
+
+  /* Dark surfaces */
+  --navy:         #040F24;
+  --navy-mid:     #0A1F4E;
+  --navy-light:   #0E3070;
+
+  /* Light surfaces — NEUTRAL (no blue tint = no visibility issues) */
+  --light:   #F4F6F8;   /* crisp neutral gray */
+  --light-2: #EAECEF;   /* slightly darker gray */
+  --surface: #FFFFFF;
+
+  /* Typography */
+  --text-primary:   #0A0F1E;   /* near-black */
+  --text-secondary: #374151;
+  --text-muted:     #6B7280;
+
+  /* Legacy */
+  --green:  #7DC338;
+  --orange: #F5820A;
+  --coral:  #ef4444;
+
+  color-scheme: light;
+}
+
+/* ─── Base ───────────────────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0; min-height: 100vh;
+  color: var(--text-primary);
+  background: #ffffff;
+  font-family: "Be Vietnam Pro", system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a { color: inherit; text-decoration: none; }
+button, input, textarea, select { font: inherit; }
+img { max-width: 100%; }
+
+/* ─── Layout ─────────────────────────────────────────────────────── */
+.container-page {
+  width: min(1220px, calc(100% - 40px));
+  margin: 0 auto;
+}
+.section { padding: 96px 0; }
+
+/* ─── Button System ──────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  min-height: 48px;
+  align-items: center; justify-content: center;
+  gap: 8px; border-radius: 12px;
+  padding: 0 24px;
+  font-weight: 700; font-size: 15px;
+  transition: all 220ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer; white-space: nowrap;
+  position: relative; overflow: hidden; border: none;
+}
+
+/* Primary — Electric Blue, works on BOTH light and dark backgrounds */
+.btn-primary {
+  background: linear-gradient(135deg, #0050B3 0%, #0095E8 60%, #1AB0FF 100%);
+  color: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(0,149,232,0.40);
+  font-weight: 800;
+}
+.btn-primary:hover {
+  background: linear-gradient(135deg, #0066DB 0%, #00AAFF 100%);
+  box-shadow: 0 8px 32px rgba(0,149,232,0.55);
+  transform: translateY(-2px);
+}
+
+/* Outline white — on dark hero backgrounds */
+.btn-outline-white {
+  border: 2px solid rgba(255,255,255,0.50);
+  color: #FFFFFF;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+  font-weight: 700;
+}
+.btn-outline-white:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.90);
+  transform: translateY(-2px);
+}
+
+/* Solid white — on dark backgrounds */
+.btn-white {
+  background: #FFFFFF;
+  color: var(--navy);
+  box-shadow: 0 4px 16px rgba(4,15,36,0.15);
+  font-weight: 800;
+}
+.btn-white:hover {
+  box-shadow: 0 10px 28px rgba(4,15,36,0.22);
+  transform: translateY(-2px);
+}
+
+/* Navy — secondary CTA on light backgrounds */
+.btn-navy {
+  background: var(--navy);
+  color: #FFFFFF;
+  box-shadow: 0 4px 16px rgba(4,15,36,0.30);
+  font-weight: 700;
+}
+.btn-navy:hover {
+  background: var(--navy-mid);
+  box-shadow: 0 8px 24px rgba(4,15,36,0.42);
+  transform: translateY(-2px);
+}
+
+/* ─── Card System ────────────────────────────────────────────────── */
+/* Light mode card — STRONG visible border, good contrast */
+.card {
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px rgba(10,15,30,0.06), 0 4px 16px rgba(10,15,30,0.04);
+  transition: all 260ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.card:hover {
+  border-color: #0095E8;
+  box-shadow:
+    0 0 0 3px rgba(0,149,232,0.08),
+    0 20px 60px rgba(0,149,232,0.12),
+    0 4px 16px rgba(10,15,30,0.06);
+  transform: translateY(-4px);
+}
+
+/* Glass card — on dark/gradient backgrounds */
+.glass-card {
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.1);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  transition: all 260ms ease;
+}
+.glass-card:hover {
+  border-color: rgba(255,255,255,0.30);
+  background: rgba(255,255,255,0.13);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 60px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.15);
+}
+
+/* Glass light — on light gradient backgrounds */
+.glass-card-light {
+  border: 1.5px solid rgba(0,149,232,0.20);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.85);
+  box-shadow: 0 4px 24px rgba(0,149,232,0.10);
+  backdrop-filter: blur(20px);
+  transition: all 260ms ease;
+}
+.glass-card-light:hover {
+  border-color: rgba(0,149,232,0.45);
+  box-shadow: 0 16px 48px rgba(0,149,232,0.18);
+  transform: translateY(-3px);
+}
+
+/* ─── Color Utilities ────────────────────────────────────────────── */
+.bg-light    { background: var(--light); }
+.bg-light-2  { background: var(--light-2); }
+.bg-navy     { background: var(--navy); }
+.bg-surface  { background: var(--surface); }
+
+.text-navy       { color: var(--navy); }
+.text-coral      { color: var(--coral); }
+.text-orange     { color: var(--orange); }
+.text-green      { color: var(--green); }
+.text-brand-blue { color: var(--brand-blue); }
+
+.bg-brand-blue  { background: var(--brand-blue); }
+.bg-coral       { background: var(--coral); }
+.bg-orange      { background: var(--orange); }
+.bg-green       { background: var(--green); }
+
+/* ─── Gradient Accent Text ───────────────────────────────────────── */
+.text-gradient-blue {
+  background: linear-gradient(135deg, #0050B3 0%, #0095E8 60%, #29ABE2 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.text-gradient-warm {
+  background: linear-gradient(135deg, #7DC338 0%, #0095E8 50%, #F5820A 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.text-gradient-orange {
+  background: linear-gradient(135deg, #F5820A 0%, #FFB347 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+
+/* ─── Brand Accent Bar (3-color logo) ───────────────────────────── */
+.brand-bar {
+  height: 3px;
+  background: linear-gradient(90deg, #7DC338 0%, #0095E8 50%, #F5820A 100%);
+  border-radius: 2px;
+}
+
+/* ─── Hero Gradient — Deep Dark ─────────────────────────────────── */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 70% at 8% 20%,  rgba(0,100,220,0.45) 0%, transparent 65%),
+    radial-gradient(ellipse 60% 50% at 88% 10%,  rgba(125,195,56,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse 55% 65% at 55% 95%,  rgba(245,130,10,0.22) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 100% at 50% 50%, rgba(10,28,75,0.95) 0%, transparent 100%),
+    linear-gradient(160deg, #010913 0%, #030D22 35%, #060F2E 65%, #08154A 100%);
+}
+
+/* Tech grid overlay (inside hero) */
+.hero-grid-overlay {
+  pointer-events: none; position: absolute; inset: 0;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px);
+  background-size: 52px 52px;
+}
+
+/* ─── Dark Accent Section (for visual rhythm) ───────────────────── */
+/* Use on alternating sections for "wow" contrast */
+.section-dark {
+  background:
+    radial-gradient(ellipse at 15% 50%, rgba(0,80,180,0.18) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 50%, rgba(125,195,56,0.10) 0%, transparent 45%),
+    #040F24;
+  color: #F1F5F9;
+}
+.section-dark .text-navy     { color: #F1F5F9; }
+.section-dark .text-slate-600 { color: #94A3B8; }
+.section-dark .text-slate-500 { color: #64748B; }
+.section-dark .card {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.10);
+  color: #F1F5F9;
+}
+.section-dark .card:hover { border-color: rgba(0,149,232,0.55); }
+
+/* ─── Eyebrow / Section Labels ───────────────────────────────────── */
+/* FIXED: now uses pill with strong background — visible on ANY background */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 14px;
+  border-radius: 100px;
+  background: rgba(0,149,232,0.10);
+  border: 1px solid rgba(0,149,232,0.25);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: #0070C7;           /* darker blue — legible on white */
+  margin-bottom: 12px;
+}
+
+/* Eyebrow on DARK backgrounds */
+.section-dark .eyebrow,
+.hero-gradient .eyebrow,
+[class*="hero-gradient"] .eyebrow,
+.blue-gradient .eyebrow,
+.green-gradient .eyebrow {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.30);
+  color: rgba(255,255,255,0.90);
+}
+
+.eyebrow.text-orange {
+  background: rgba(245,130,10,0.10);
+  border-color: rgba(245,130,10,0.25);
+  color: #C85A00;
+}
+
+.eyebrow.text-green {
+  background: rgba(125,195,56,0.12);
+  border-color: rgba(125,195,56,0.28);
+  color: #4A7E1A;
+}
+
+/* ─── Metrics ────────────────────────────────────────────────────── */
+.metric-card {
+  padding: 22px 18px;
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  text-align: center; color: white;
+  transition: all 260ms ease;
+}
+.metric-card:hover {
+  background: rgba(255,255,255,0.14);
+  border-color: rgba(0,149,232,0.45);
+  transform: translateY(-3px);
+}
+.metric-card .metric-val {
+  font-size: 32px; font-weight: 900; line-height: 1;
+  background: linear-gradient(135deg, #FFFFFF 0%, #B8E4FF 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+.metric-card .metric-lbl {
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.14em; color: rgba(255,255,255,0.62); margin-top: 7px;
+}
+
+/* ─── Award Card ─────────────────────────────────────────────────── */
+.award-card {
+  border: 1.5px solid #E2E8F0;
+  border-radius: 20px;
+  background: linear-gradient(160deg, #FFFFFF 0%, #F8FAFE 100%);
+  box-shadow: 0 2px 12px rgba(10,15,30,0.06);
+  padding: 28px; text-align: center;
+  transition: all 260ms cubic-bezier(0.4,0,0.2,1);
+}
+.award-card:hover {
+  transform: translateY(-6px);
+  border-color: #0095E8;
+  box-shadow: 0 24px 60px rgba(0,149,232,0.16), 0 4px 16px rgba(10,15,30,0.08);
+}
+
+/* ─── Form ───────────────────────────────────────────────────────── */
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label { font-size: 13px; font-weight: 700; color: #374151; }
+
+.form-input {
+  min-height: 48px; width: 100%; border-radius: 12px;
+  border: 1.5px solid #D1D5DB;
+  background: #FAFAFA;
+  padding: 0 16px; font-size: 14px; color: #111827;
+  outline: none;
+  transition: border-color 180ms, box-shadow 180ms, background 180ms;
+}
+.form-input:focus {
+  border-color: var(--brand-blue);
+  box-shadow: 0 0 0 4px rgba(0,149,232,0.12);
+  background: #FFFFFF;
+}
+textarea.form-input { padding: 14px 16px; resize: vertical; }
+
+/* ─── Timeline ───────────────────────────────────────────────────── */
+.timeline-item { position: relative; padding-left: 32px; }
+.timeline-item::before {
+  content: ""; position: absolute; left: 0; top: 6px;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--brand-blue);
+  box-shadow: 0 0 0 4px rgba(0,149,232,0.20);
+}
+.timeline-item::after {
+  content: ""; position: absolute;
+  left: 6px; top: 22px; width: 2px; bottom: -16px;
+  background: linear-gradient(to bottom, var(--brand-blue), transparent);
+}
+
+/* ─── Pipeline Steps ─────────────────────────────────────────────── */
+.pipeline-step {
+  position: relative; display: flex;
+  flex-direction: column; align-items: center; text-align: center; flex: 1;
+}
+.pipeline-step .step-dot {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--navy), var(--brand-blue));
+  color: white; font-weight: 900; font-size: 15px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(0,149,232,0.40);
+}
+.pipeline-step .step-line {
+  position: absolute; left: 50%; top: 24px; width: 100%; height: 2px;
+  background: linear-gradient(to right, var(--brand-blue), rgba(0,149,232,0.10));
+}
+.pipeline-step:last-child .step-line { display: none; }
+
+/* ─── Badge ──────────────────────────────────────────────────────── */
+.badge-hot {
+  display: inline-block; padding: 3px 12px; border-radius: 100px;
+  background: linear-gradient(135deg, #F5820A, #FFB347);
+  color: white; font-size: 10px; font-weight: 800;
+  text-transform: uppercase; letter-spacing: 0.08em;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TECH MODE (Dark) — CREATIVE, FUTURISTIC
+   Deep near-black + vivid purple/cyan/orange
+   ══════════════════════════════════════════════════════════════════ */
+.tech-mode {
+  background: #070710;
+  color: #E2E8F0;
+  /* Subtle purple noise texture */
+  background-image:
+    radial-gradient(ellipse at 10% 10%, rgba(109,40,217,0.18) 0%, transparent 40%),
+    radial-gradient(ellipse at 85% 15%, rgba(6,182,212,0.14) 0%, transparent 35%),
+    radial-gradient(ellipse at 50% 90%, rgba(245,130,10,0.10) 0%, transparent 40%);
+}
+
+/* Dark mode text overrides */
+.tech-mode .text-navy        { color: #F1F5F9; }
+.tech-mode .text-slate-700   { color: #CBD5E1; }
+.tech-mode .text-slate-600   { color: #94A3B8; }
+.tech-mode .text-slate-500   { color: #64748B; }
+.tech-mode h1, .tech-mode h2, .tech-mode h3 { color: #F1F5F9; }
+
+/* Dark mode sections */
+.tech-mode .bg-light         { background: rgba(15,14,30,0.90); }
+.tech-mode .bg-light-2       { background: rgba(12,11,26,0.90); }
+.tech-mode .bg-white         { background: rgba(12,11,26,0.95) !important; }
+.tech-mode .bg-surface       { background: rgba(12,11,26,0.95); }
+.tech-mode section[class*="bg-"] { background: rgba(12,11,26,0.90); }
+
+/* Dark mode cards — vivid accents */
+.tech-mode .card {
+  background: rgba(15,14,30,0.95);
+  border: 1px solid rgba(109,40,217,0.20);
+  color: #E2E8F0;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.40);
+}
+.tech-mode .card:hover {
+  border-color: rgba(6,182,212,0.55);
+  box-shadow: 0 0 0 2px rgba(6,182,212,0.10), 0 20px 60px rgba(6,182,212,0.15);
+  transform: translateY(-4px);
+}
+
+.tech-mode .glass-card       { background: rgba(15,14,30,0.80); }
+.tech-mode .glass-card-light {
+  background: rgba(15,14,30,0.90);
+  border-color: rgba(109,40,217,0.20);
+}
+.tech-mode .glass-card-light:hover {
+  border-color: rgba(6,182,212,0.45);
+  box-shadow: 0 16px 48px rgba(6,182,212,0.15);
+}
+
+/* Dark mode eyebrow */
+.tech-mode .eyebrow {
+  background: rgba(109,40,217,0.15);
+  border-color: rgba(109,40,217,0.35);
+  color: #A78BFA;
+}
+
+/* Dark mode metric cards */
+.tech-mode .metric-card {
+  background: rgba(109,40,217,0.10);
+  border-color: rgba(109,40,217,0.22);
+}
+.tech-mode .metric-card:hover {
+  border-color: rgba(6,182,212,0.45);
+  background: rgba(6,182,212,0.08);
+}
+
+/* Dark mode award cards */
+.tech-mode .award-card {
+  background: linear-gradient(160deg, rgba(15,14,30,0.95), rgba(8,8,20,0.98));
+  border-color: rgba(109,40,217,0.22);
+  color: #E2E8F0;
+}
+.tech-mode .award-card:hover {
+  border-color: rgba(6,182,212,0.50);
+  box-shadow: 0 24px 60px rgba(6,182,212,0.14);
+}
+
+/* Dark mode forms */
+.tech-mode .form-input {
+  background: rgba(15,14,30,0.90);
+  border-color: rgba(109,40,217,0.25);
+  color: #E2E8F0;
+}
+.tech-mode .form-input:focus {
+  border-color: #7C3AED;
+  box-shadow: 0 0 0 4px rgba(124,58,237,0.15);
+  background: rgba(20,18,40,0.95);
+}
+.tech-mode .form-field label { color: #94A3B8; }
+
+/* Dark mode borders */
+.tech-mode .border-slate-200 { border-color: rgba(109,40,217,0.18) !important; }
+.tech-mode .border-slate-100 { border-color: rgba(109,40,217,0.12) !important; }
+
+/* Dark mode SectionTitle bar */
+.tech-mode .brand-bar {
+  background: linear-gradient(90deg, #7C3AED 0%, #06B6D4 50%, #F5820A 100%);
+}
+
+/* Dark mode hero — ultra deep, more dramatic */
+.tech-mode .hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 10% 15%, rgba(109,40,217,0.50) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 10%, rgba(6,182,212,0.35) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 60% at 50% 90%, rgba(245,130,10,0.25) 0%, transparent 55%),
+    linear-gradient(160deg, #010108 0%, #05040F 40%, #08071A 100%);
+}
+
+/* ─── Animations ─────────────────────────────────────────────────── */
+@keyframes float         { 0%,100%{transform:translateY(0)}  50%{transform:translateY(-12px)} }
+@keyframes floatRight    { 0%,100%{transform:translateY(0) rotate(0deg)} 50%{transform:translateY(10px) rotate(1.5deg)} }
+@keyframes pulse-glow    { 0%,100%{box-shadow:0 0 0 0 rgba(0,149,232,0.4)} 50%{box-shadow:0 0 0 16px rgba(0,149,232,0)} }
+@keyframes pulse-purple  { 0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,0.4)} 50%{box-shadow:0 0 0 16px rgba(124,58,237,0)} }
+@keyframes shimmer       { 0%{opacity:0.6} 50%{opacity:1} 100%{opacity:0.6} }
+
+.animate-float         { animation: float 5.5s ease-in-out infinite; }
+.animate-float-right   { animation: floatRight 6.5s ease-in-out infinite; }
+.animate-pulse-glow    { animation: pulse-glow 2.8s ease-in-out infinite; }
+.animate-pulse-purple  { animation: pulse-purple 2.8s ease-in-out infinite; }
+
+/* ─── Scrollbar ──────────────────────────────────────────────────── */
+::-webkit-scrollbar               { width: 5px; }
+::-webkit-scrollbar-track         { background: transparent; }
+::-webkit-scrollbar-thumb         { background: rgba(0,149,232,0.35); border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover   { background: rgba(0,149,232,0.65); }
+
+.tech-mode ::-webkit-scrollbar-thumb { background: rgba(124,58,237,0.50); }
+.tech-mode ::-webkit-scrollbar-thumb:hover { background: rgba(124,58,237,0.80); }
+
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide                     { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .container-page { width: calc(100% - 28px); }
+  .section        { padding: 64px 0; }
+  .btn            { min-height: 46px; padding: 0 18px; font-size: 14px; }
+  h1 { font-size: 2.2rem !important; line-height: 1.12 !important; }
+  h2 { font-size: 1.7rem !important;  line-height: 1.18 !important; }
+  .pipeline-step .step-line { display: none; }
+}
+
+/* ─── Utility: smooth shadow for floated elements ────────────────── */
+.shadow-blue   { box-shadow: 0 12px 40px rgba(0,149,232,0.25); }
+.shadow-green  { box-shadow: 0 12px 40px rgba(125,195,56,0.25); }
+.shadow-purple { box-shadow: 0 12px 40px rgba(124,58,237,0.30); }
+
+/* ─── Missing gradient backgrounds (restored) ───────────────────── */
+/* Awards section — dark blue gradient with white text */
+.blue-gradient {
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(0,100,220,0.40) 0%, transparent 60%),
+    radial-gradient(ellipse at 85% 70%, rgba(6,182,212,0.20) 0%, transparent 50%),
+    linear-gradient(145deg, #040F24 0%, #0A1F4E 45%, #0E3070 80%, #143A8C 100%);
+  color: #FFFFFF;
+}
+
+.blue-gradient .text-navy { color: #FFFFFF !important; }
+.blue-gradient .text-slate-600 { color: rgba(255,255,255,0.75) !important; }
+
+.green-gradient {
+  background: linear-gradient(135deg, #2D5A10 0%, #4A8A1E 50%, #7DC338 100%);
+  color: #FFFFFF;
+}
+
+/* ─── Dark mode (tech-mode) extra text visibility fixes ─────────── */
+.tech-mode .text-slate-500 { color: #64748B; }
+.tech-mode .text-slate-400 { color: #475569; }
+.tech-mode p, .tech-mode span, .tech-mode li { color: inherit; }
+
+/* Fix h1/h2/h3 on dark sections */
+.tech-mode h1:not([class*="text-"]),
+.tech-mode h2:not([class*="text-"]),
+.tech-mode h3:not([class*="text-"]) { color: #F1F5F9; }
+
+/* Fix award-card text in dark mode */
+.tech-mode .award-card h3,
+.tech-mode .award-card p { color: #E2E8F0; }
+
+/* Fix bg-white text in dark mode explicitly */
+.tech-mode .bg-white p, .tech-mode .bg-white span,
+.tech-mode .bg-white h3 { color: #E2E8F0; }
+
+/* Industries, Products sections on dark mode */
+.tech-mode [class*="card"] .text-brand-blue { color: #29ABE2; }
+.tech-mode [class*="card"] .text-slate-600  { color: #94A3B8; }
+
+/* ─── Missing button styles ─────────────────────────────────────── */
+.btn-outline-navy {
+  border: 1.5px solid var(--navy);
+  color: var(--navy);
+  background: transparent;
+  font-weight: 700;
+}
+.btn-outline-navy:hover {
+  background: var(--navy);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}

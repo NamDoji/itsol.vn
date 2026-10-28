@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="en" />
+
+    <title>404 - Tập đoàn Vingroup</title>
+<meta name="title" content="Vingroup - Mãi mãi tinh thần khởi nghiệp" />
+<meta name="description" content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Vingroup cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng." />
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Vingroup - Mãi mãi tinh thần khởi nghiệp" />
+<meta property="og:description" content="Với mong muốn đem đến cho thị trường những sản phẩm - dịch vụ theo tiêu chuẩn quốc tế và những trải nghiệm hoàn toàn mới về phong cách sống hiện đại, ở bất cứ lĩnh vực nào Vingroup cũng chứng tỏ vai trò tiên phong, dẫn dắt sự thay đổi xu hướng tiêu dùng." />
+<meta property="og:url" content="https://vingroup.net/404?404;https://vingroup.net:80/wp-content/themes/vingroup/images/logo.png" />
+<meta property="og:site_name" content="VinGroup" />
+<meta property="og:image" content="https://vingroup.net/assets/images/share-social.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="fb:app_id" content="810525242676524" />
+
+
+    <meta name="webroot" content="." />
+    <!-- Viewport and mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0">
+
+    <!-- FAVICON -->
+    <link rel="image_src" href="https://vingroup.net/assets/favicon.png" />
+    <link rel="icon" type="image/jpeg" href="https://vingroup.net/assets/favicon.png" />
+
+    <link rel="stylesheet" href="https://vingroup.net/assets/css/main.css">
+    <link rel="stylesheet" href="https://vingroup.net/assets/css/styles.css">
+</head>
+<body>
+    <header>
+        <!-- Thường chứa LOGO, MENU NAVIGATION,... -->
+        <div class="hdContainer">
+            <a class="logo" href="/" style="background-image: url('https://vingroup.net/assets/images/logo.png');">
+                <img src="https://vingroup.net/assets/images/logo.png">
+            </a>
+            <div class="hamburger-menu">
+                <div class="bar"></div>
+            </div>
+            <div class="botHd">
+                <a class="btnSearch" href="/tim-kiem"></a>
+                <p>
+                        <a href="/en/404">EN</a><em>|</em><span>VN</span>
+                </p>
+            </div>
+        </div>
+
+        <div class="ctMenu">
+            <nav>
+                <ul id="nav">
+                    <li><a href="/" class="">Trang ch&#7911;</a></li>
+                    <li><a href="/gioi-thieu" class="">Gi&#7899;i thi&#7879;u T&#7853;p đoàn</a></li>
+                    <li class="hasSub">
+                        <a href="/linh-vuc-hoat-dong" class="">Lĩnh v&#7921;c ho&#7841;t đ&#7897;ng</a>
+                        <div class="submenu">
+
+                                <a href="/linh-vuc-hoat-dong/cong-nghe-br-cong-nghiep">Công ngh&#7879;  - Công nghi&#7879;p</a>
+                                <a href="/linh-vuc-hoat-dong/thuong-mai-br-dich-vu">Thương m&#7841;i  D&#7883;ch v&#7909;</a>
+                                <a href="/linh-vuc-hoat-dong/ha-tang">H&#7841; t&#7847;ng</a>
+                                <a href="/linh-vuc-hoat-dong/nang-luong-xanh">Năng lư&#7907;ng xanh</a>
+                                <a href="/linh-vuc-hoat-dong/van-hoa">Văn Hóa</a>
+                                <a href="/linh-vuc-hoat-dong/thien-nguyen-br-xa-hoi">Thi&#7879;n nguy&#7879;n  Xã h&#7897;i</a>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="/phat-trien-ben-vung" class="">Phát tri&#7875;n b&#7873;n v&#7919;ng</a>
+                    </li>
+                    <li><a href="/quan-he-co-dong" class="">Quan h&#7879; c&#7893; đông</a></li>
+                    <li><a href="/tin-tuc-su-kien" class="">Tin t&#7913;c s&#7921; ki&#7879;n</a></li>
+                </ul>
+                <div class="subLink">
+                    <a href="https://tuyendung.vingroup.net/" target="_blank" class="">Tuy&#7875;n d&#7909;ng</a>
+                    <a href="/lien-he" class="">Liên h&#7879;</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <main id="pTerm">
+
+        
+
+<section class="termWrap stagger-up">
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="/"><i class="fas fa-home"></i></a> <i class="fas fa-chevron-right"></i>
+            <p>404</p>
+        </div>
+        <div class="content">
+            <h2 class="title" style="text-align: center; font-size: 120px;">404</h2>
+            <p style="text-align: center;font-size: 30px;">R&#7845;t ti&#7871;c! Trang này không t&#7891;n t&#7841;i.</p>
+        </div>
+    </div>
+</section>
+
+        <footer>
+            <!-- Chứa footer -->
+            <div class="loading">
+                <div>
+                    <div class="outerCircle"></div>
+                    <div class="innerCircle"></div>
+                </div>
+            </div>
+
+            <div class="container">
+
+<div class="row">
+<div class="left">
+<div>
+<h4>Tập đoàn Vingroup (Vingroup JSC)</h4>
+<p>© Bản quyền Vingroup 2019</p>
+</div>
+<div>
+<p>Kết nối với chúng tôi:</p>
+</div>
+</div>
+<div class="right">
+<ul>
+<li><a href="/"><strong>Trang chủ</strong> </a></li><li><a href="https://vingroup.net/gioi-thieu"><strong>Giới thiệu Tập đoàn</strong>
+</a></li><li><a href="/linh-vuc-hoat-dong/cong-nghe"><strong>Lĩnh vực hoạt động</strong> </a>
+</li><li><a href="/quan-he-co-dong"><strong>Quan hệ cổ đông</strong> </a></li><li><a href="/phat-trien-ben-vung"><strong>Phát triển bền vững</strong> </a></li></ul>
+<ul>
+<li><a href="/tin-tuc-su-kien">Tin tức sự kiện</a> </li><li><a href="https://tuyendung.vingroup.net/" target="_blank" rel="noopener">Tuyển dụng</a>
+</li><li><a href="/lien-he">Liên hệ</a> </li></ul>
+</div>
+</div>
+<div class="botFooter">
+<p><a href="https://vingroup.net/phat-trien-ben-vung/3590/bao-ve-quyen-loi-nguoi-tieu-dung">Bảo vệ quyền lợi người tiêu dùng</a></p>
+<p></p>
+</div>
+            </div>
+        </footer>
+    </main>
+    <div id="popup" class="helper-hide">
+        <div class="holder helper-centerbox register"></div>
+        <div class="holder helper-centerbox login"></div>
+    </div>
+    <div id="preloader" class="helper-hide">
+        <div class="loader helper-centerbox">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <script>var path_resource = "https://vingroup.net/assets/";</script>
+    <script src="https://vingroup.net/assets//js/libraries/jquery.min.js"></script>
+    <script src="https://vingroup.net/assets//js/plugins/sweetalert2/sweetalert2.min.js"></script>
+    <script src="https://vingroup.net/assets/js/main.js"></script>
+    <script src="https://vingroup.net/assets/js/app.js"></script>
+    <script src="https://vingroup.net/assets/js/functions.js"></script>
+</body>
+</html>

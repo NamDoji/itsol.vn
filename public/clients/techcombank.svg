@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 64" fill="none">
+  <rect width="220" height="64" fill="white"/>
+  <rect x="8" y="16" width="8" height="32" rx="1" fill="#C8102E"/>
+  <rect x="20" y="16" width="8" height="32" rx="1" fill="#C8102E"/>
+  <text x="38" y="38" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#1A1A1A">TECHCOM</text>
+  <text x="38" y="52" font-family="Arial,sans-serif" font-size="10" font-weight="400" fill="#C8102E" letter-spacing="2">BANK</text>
+</svg>

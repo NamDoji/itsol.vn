@@ -1,0 +1,42 @@
+{
+  "name": "itsol-corporate-website",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0",
+    "lint": "eslint",
+    "postinstall": "prisma generate",
+    "seed": "prisma db seed",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "prisma db seed"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^5.4.0",
+    "@prisma/client": "^6.19.0",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.21.0",
+    "next": "^15.5.19",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "react-hook-form": "^7.80.0",
+    "xlsx": "^0.18.5",
+    "zod": "^4.4.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.15.30",
+    "@types/react": "19.0.12",
+    "@types/react-dom": "19.0.4",
+    "autoprefixer": "10.4.21",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.9",
+    "prisma": "^6.19.0",
+    "tailwindcss": "3.4.17",
+    "tsx": "^4.22.4",
+    "typescript": "5.8.3"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed.ts"
+  }
+}
